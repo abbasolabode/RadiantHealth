@@ -70,7 +70,7 @@ export default function BookNowCard() {
                 >
                     <Link
                         to="/appointment"
-                        className="flex bg-white text-[#0f172a] items-center gap-2 w-40 justify-center py-3 text-center rounded-full font-semibold shadow-lg"
+                        className="flex md:w-200 tracking-wider bg-white text-[#0f172a] items-center gap-2 w-40 justify-center py-3 text-center rounded-full font-semibold shadow-lg"
                     >
                         Book Now <GoArrowRight size={20} />
                     </Link>
