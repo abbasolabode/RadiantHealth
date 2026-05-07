@@ -48,17 +48,17 @@ export default function Navbar() {
     }
 
     return (
-        <header className="w-full  fixed top-0 left-0 z-50 bg-white/50 backdrop-blur-lg border-b/50 border-stone-700">
-            <div className="w-full lg:hidden flex justify-between shadow-md bg-white top-0 items-center gap-50 px-4 min-h-[63.33px]  ">
-                <Link to="/home" className="text-base font-bold">
+        <header className="w-full  fixed top-0 left-0 z-50 bg-blue-900 ">
+            <div className="w-full bg-blue-900 lg:hidden flex justify-between shadow-md top-0 items-center gap-50 px-4 min-h-[63.33px]  ">
+                <Link to="/home" className="text-base font-bold uppercase tracking-wider text-white">
                     Aestheris<span className="text-blue-500">Health</span>
                 </Link>
                 <>
-                    {!isOpen ? <button onClick={handleOpen} className="w-7.5 h-7.5 flex items-center justify-center">
-                        <CiMenuBurger size={24} />
+                    {!isOpen ? <button onClick={handleOpen} className="w-8 h-8 flex items-center justify-center text-white">
+                        <CiMenuBurger size={28} />
                     </button>
                         :
-                        <button onClick={() => setIsOpen(false)} className="text-3xl flex justify-end text-gray-500"><IoMdClose size={26} /></button>}
+                        <button onClick={() => setIsOpen(false)} className="w-8 h-8 text-3xl flex justify-end text-red-500"><IoMdClose size={28} /></button>}
                 </>
             </div>
 
@@ -71,18 +71,18 @@ export default function Navbar() {
                     aria-label="Mobile navigation"
                     animate="visible"
                     exit="exit"
-                    className="min-[1024px]:hidden pb-10 top-0 pt-7 bg-white  w-full px-4 min-h-100 flex flex-col gap-5">
+                    className="min-[1024px]:hidden pb-10 top-0 pt-7 bg-blue-900  w-full px-4 min-h-100 flex flex-col gap-5">
                     {/* Links */}
                     <ul className="w-full flex flex-col gap-5">
                         {navLinks.map(link => (
-                            <li key={link.id} className="font-semibold text-gray-400" variants={linkVariants}>
+                            <li key={link.id} className="font-semibold tracking-widest text-white uppercase" variants={linkVariants}>
                                 <Link to={link.path}>{link.label}</Link>
                             </li>
                         ))}
 
                     </ul>
                     {/* BUtton to navigate */}
-                    <Link to="/" className="border text-white bg-blue-500 py-2 text-center font-semibold rounded-full w-full">Patient Portal</Link>
+                    <Link to="/" className="text-white tracking-wider uppercase bg-blue-700 py-4 text-center font-semibold rounded-full w-full">Patient Portal</Link>
                 </motion.nav>}
             </AnimatePresence>
 
@@ -90,17 +90,17 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 justify-between w-full px-5 py-5  lg:z-0">
-                <Link to="/home" className="text-base font-bold">
+                <Link to="/home" className="text-base font-bold uppercase tracking-wider text-white">
                     Aestheris<span className="text-blue-500">Health</span>
                 </Link>
-                <ul className="flex items-center justify-center gap-6 text-gray-400 font-medium">
+                <ul className="px-4 py-4 rounded-full bg-gradient-to-br from-[#1e3a5f] via-[#1e40af] to-[#2563eb] flex items-center justify-center gap-6 text-white font-medium">
 
                     {navLinks.map(link => (
                         <li key={link.id}>
                             <NavLink
                                 to={link.path}
                                 className={({ isActive }) =>
-                                    isActive ? "text-blue-500 font-bold" : "text-gray-500"
+                                    isActive ? "text-blue-500 tracking-widest font-bold uppercase"  : "text-white uppercase "
                                 }
                             >
                                 {link.label}

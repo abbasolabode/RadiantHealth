@@ -190,7 +190,7 @@ export default function AppointmentSection() {
 
 
     return (
-        <main className=" w-full overflow-hidden min-h-screen px-4 py-8 space-y-12">
+        <main className=" w-full min-h-screen px-4 py-8 space-y-12">
 
             {/* Animation keyframes */}
             <style>{`

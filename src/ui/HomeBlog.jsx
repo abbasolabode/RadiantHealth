@@ -104,7 +104,7 @@ export default function HomeBlog() {
               transition: { duration: 0.3 },
               boxShadow: "0px 25px 60px rgba(15,23,42,0.10)",
             }}
-            className="min-[800px]:h-70 min-[500px]:space-y-3 min-[500px]:h-60 w-full flex flex-col gap-4 h-70 py-6 px-5 rounded-3xl border border-[#dbe4ee] bg-[#ffffff]"
+            className="justify-center min-[800px]:h-70 min-[500px]:space-y-3 min-[500px]:h-60 w-full flex flex-col gap-4 h-70 py-6 px-5 rounded-3xl border border-[#dbe4ee] bg-[#ffffff]"
           >
             {/* Top Tags */}
             <motion.span

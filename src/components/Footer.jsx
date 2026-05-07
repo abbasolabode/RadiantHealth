@@ -20,7 +20,7 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#111c33] text-white min-[800px]:grid min-[800px]:grid-cols-4 min-[800px]:min-h-[300px] w-full px-4 py-12 flex flex-col gap-7">
+    <footer className="relative overflow-hidden bg-gradient-to-br from-[#0b1220] via-[#0f172a] to-[#111c33] text-white min-[800px]:grid min-[800px]:grid-cols-4 min-[800px]:min-h-[300px] w-full px-4 py-12 flex flex-col gap-7 md:grid md:grid-cols-4 min-[600px]:grid min-[600px]:grid-cols-3">
 
       {/* subtle glow background */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/10 blur-3xl rounded-full"></div>
@@ -69,8 +69,8 @@ export default function Footer() {
         <span className="text-white/60 text-[14px]">info@aetheris.health</span>
       </section>
 
-      {/* Divider */}
-      <hr className="border-white/10 w-full min-[800px]:col-span-4" />
+      {/* Divider - FIXED */}
+      <hr className="border-white/10 w-full col-span-full min-[800px]:col-span-4" />
 
       {/* Bottom */}
       <div className="relative z-10 flex flex-col gap-4 justify-center items-center w-full min-[800px]:flex-row min-[800px]:justify-between min-[800px]:col-span-4">
@@ -86,6 +86,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
     </footer>
   );
 }
