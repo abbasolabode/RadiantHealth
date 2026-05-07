@@ -50,7 +50,7 @@ export default function Navbar() {
         <header className="w-full fixed top-0 left-0 z-50 bg-blue-900">
 
             {/* Mobile Navbar */}
-            <div className="w-full bg-blue-900 lg:hidden flex justify-between items-center px-4 min-h-[63.33px] shadow-md">
+            <div className="w-full  lg:hidden flex justify-between items-center px-4 min-h-[63.33px] shadow-md">
 
                 <Link
                     to="/home"
@@ -126,7 +126,7 @@ export default function Navbar() {
                     Aestheris<span className="text-blue-500">Health</span>
                 </Link>
 
-                <ul className="px-4 py-4 rounded-full bg-gradient-to-br from-[#1e3a5f] via-[#1e40af] to-[#2563eb] flex items-center justify-center gap-6 text-white font-medium">
+                <ul className="px-4 py-4 rounded-full bg-linear-to-br from-[#1e3a5f] via-[#1e40af] to-[#2563eb] flex items-center justify-center gap-6 text-white font-medium">
 
                     {navLinks.map(link => (
                         <li key={link.id}>
