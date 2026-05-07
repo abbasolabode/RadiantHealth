@@ -174,12 +174,13 @@ export default function AppointmentSection() {
 
     if (isLoading) return <Spinner />
 
-    console.log(errors, "errors from form")
 
     const onSubmit = (formData) => {
         if (!formData.fullName || !formData.email || !formData.phone || !formData.message) {
             return alert("Please fill in all required fields before submitting the form.");
         }
+
+        if(!selectedSpecialty || !selectedDoctor|| !confirmedDate || !selectedTime) return alert("Please provide the doctor's name, specialty, time and date");
         mutate({
             ...formData, selectedSpecialty, selectedDoctor, confirmedDate, selectedTime
             
@@ -189,7 +190,7 @@ export default function AppointmentSection() {
 
 
     return (
-        <main className="w-full overflow-hidden min-h-screen px-4 py-8 space-y-12">
+        <main className=" w-full overflow-hidden min-h-screen px-4 py-8 space-y-12">
 
             {/* Animation keyframes */}
             <style>{`
@@ -230,10 +231,10 @@ export default function AppointmentSection() {
             </header>
 
             {/* Content body */}
-            <div className="shadow-sm shadow-white min-h-screen flex gap-3 mb-5">
+            <div className="md:flex-row items-center justify-center shadow-sm shadow-white min-h-screen flex flex-col gap-3 mb-5">
                 {/* 01 - Specialty */}
                 <section className="min-h-full w-full ">
-                    <div className="flex items-center gap-3 mb-5">
+                    <div className="flex  items-center gap-3 mb-5">
                         <span className="w-9 h-9 rounded-xl bg-blue-200 text-primary flex items-center justify-center text-white">
                             <CiStethoscope size={24} />
                         </span>
@@ -342,7 +343,7 @@ export default function AppointmentSection() {
             </div>
 
             {/* 02 - Select a Specialist */}
-            <section>
+            <section className="w-full">
                 <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-3">
                         <span className="w-9 h-9 text-blue-800 rounded-xl bg-primary/10 bg-blue-200/80 flex items-center justify-center">

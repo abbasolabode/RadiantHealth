@@ -6,7 +6,7 @@ export default function Herosection() {
     const navigate = useNavigate();
 
     return (
-        <main className="min-h-screen flex flex-col lg:flex-row lg:items-center gap-6 py-7 px-4 min-[425px]:gap-8 lg:z-0">
+        <main className="min-h-screen space-y-8  flex flex-col lg:flex-row lg:items-center gap-6 py-7 px-4 min-[425px]:gap-8 lg:z-0">
 
             <motion.section
                 initial={{ opacity: 0, x: -60 }}

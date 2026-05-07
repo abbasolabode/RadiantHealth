@@ -48,7 +48,7 @@ export default function Navbar() {
     }
 
     return (
-        <header className="w-full fixed top-0 left-0 z-50 bg-white/50 backdrop-blur-lg border-b/50 border-stone-700">
+        <header className="w-full  fixed top-0 left-0 z-50 bg-white/50 backdrop-blur-lg border-b/50 border-stone-700">
             <div className="w-full lg:hidden flex justify-between shadow-md bg-white top-0 items-center gap-50 px-4 min-h-[63.33px]  ">
                 <Link to="/home" className="text-base font-bold">
                     Aestheris<span className="text-blue-500">Health</span>
@@ -71,7 +71,7 @@ export default function Navbar() {
                     aria-label="Mobile navigation"
                     animate="visible"
                     exit="exit"
-                    className="min-[1024px]:hidden top-0 pt-7 bg-white  w-full px-4 min-h-100 flex flex-col gap-5">
+                    className="min-[1024px]:hidden pb-10 top-0 pt-7 bg-white  w-full px-4 min-h-100 flex flex-col gap-5">
                     {/* Links */}
                     <ul className="w-full flex flex-col gap-5">
                         {navLinks.map(link => (
