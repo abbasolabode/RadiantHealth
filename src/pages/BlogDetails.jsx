@@ -31,7 +31,7 @@ export default function BlogDetails() {
         </div>
         <h1 className="text-3xl font-medium leading-relaxed">{blogDetails?.header}</h1>
         {/* Image */}
-        <figure className="min-h-58 rounded-xl border">
+        <figure className="min-h-58 rounded-xl">
           <img className="min-h-58 " src={blogDetails?.image} alt={blogDetails?.research} />
         </figure>
       </header>
