@@ -54,7 +54,7 @@ export default function Navbar() {
                     Aestheris<span className="text-blue-500">Health</span>
                 </Link>
                 <>
-                    {!isOpen ? <button onClick={handleOpen} className="w-8 h-8 flex items-center justify-center text-white">
+                    {!isOpen ? <button onClick={handleOpen} className="w-8 relative right-6.5 h-8 flex items-center justify-center text-white">
                         <CiMenuBurger size={28} />
                     </button>
                         :
