@@ -7,7 +7,7 @@ import NumCards from "../ui/NumCards"
 
 export default function Home() {
   return (
-    <div className="w-full z-0">
+    <div className="w-full z-0 flex flex-col gap-12">
       <Herosection />
       <NumCards/>
       <Cards/>
