@@ -15,7 +15,7 @@ export default function Herosection() {
                     duration: 1,
                     ease: [0.22, 1, 0.36, 1],
                 }}
-                className="h-[530.667px] md:w-1/2 flex flex-col gap-6 py-4"
+                className="w-full h-[530.667px] md:w-1/2 flex flex-col gap-6 py-4"
             >
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export default function Herosection() {
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.75, duration: 0.8 }}
-                    className="flex flex-col gap-5 min-[425px]:flex-row"
+                    className="flex flex-col gap-5 w-full"
                 >
                     <motion.button
                         whileHover={{
@@ -67,7 +67,7 @@ export default function Herosection() {
                         }}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => navigate("/appointment")}
-                        className="tracking-widest text-white bg-blue-600 whitespace-nowrap rounded-full min-[375px]:w-[246.771px] w-full justify-center font-semibold py-3 px-6 flex items-center gap-2"
+                        className="tracking-widest text-white bg-blue-600 whitespace-nowrap rounded-full w-full min-[375px]:w-[246.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
                     >
                         Book Appointment <FiArrowRight />
                     </motion.button>
@@ -80,7 +80,7 @@ export default function Herosection() {
                         }}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => navigate("/doctors")}
-                        className="border text-black tracking-widest whitespace-nowrap border-gray-300 rounded-full min-[375px]:w-[200.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
+                        className="border border-gray-400/50 w-full text-black tracking-widest whitespace-nowrap rounded-full min-[375px]:w-[200.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
                     >
                         View Specialist
                     </motion.button>
