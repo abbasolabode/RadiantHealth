@@ -43,7 +43,7 @@ export default function HomeBlog() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
-      className="w-full min-h-screen flex px-4 py-8 flex-col gap-5 bg-[#f4f7fb]"
+      className="w-full min-h-screen flex px-4 py-8 flex-col gap-5 bg-stone-200/50"
     >
       {/* Header */}
       <motion.section

@@ -73,10 +73,12 @@ export default function Footer() {
       <hr className="border-white/10 w-full col-span-full min-[800px]:col-span-4" />
 
       {/* Bottom */}
-      <div className="relative z-10 flex flex-col gap-4 justify-center items-center w-full min-[800px]:flex-row min-[800px]:justify-between min-[800px]:col-span-4">
-        <div className="text-white/50 text-[14px] w-full text-center">
+      <div className="relative justify-between z-10 flex flex-col gap-8 w-full min-[800px]:flex-row min-[800px]:justify-between min-[800px]:col-span-4">
+
+        <div className="text-white/50 text-[14px] w-full text-center min-[800px]:text-left">
           © 2026 Aetheris Health. All rights reserved.
         </div>
+
         <div className="flex gap-6 w-full min-[800px]:justify-end justify-center">
           <p className="text-white/50 text-[14px] hover:text-white transition">
             Privacy Policy
@@ -85,6 +87,7 @@ export default function Footer() {
             Terms of Service
           </p>
         </div>
+
       </div>
 
     </footer>

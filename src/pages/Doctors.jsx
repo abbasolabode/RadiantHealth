@@ -104,7 +104,7 @@ export default function Doctors() {
       </div>
 
       {/* Cards */}
-      <section className="flex flex-col md:grid md:grid-cols-3 lg:gric-cols-4 gap-5">
+      <section className="flex flex-col min-[500px]:grid-cols-2 md:grid md:grid-cols-3  lg:grid-cols-4 gap-5">
         <p className="text-sm text-gray-500">
           Showing{" "}
           <span className="font-bold text-black">

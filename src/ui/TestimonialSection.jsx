@@ -2,6 +2,8 @@ import { FaQuoteRight } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import Cards from "./Cards";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
+
 const contents = [
     {
         id: 1,
@@ -24,7 +26,6 @@ const contents = [
         title: "Patients Satisfaction",
     },
 ]
-
 
 const testimonialsCards = [
     {
@@ -53,8 +54,6 @@ const testimonialsCards = [
         rating: 5,
     },
 ]
-
-
 
 const moreTestimonial = [
     {
@@ -89,7 +88,7 @@ const moreTestimonial = [
     },
 
     {
-        id: 4,
+        id: 5,
         text: "As a heart patient for over a decade, I can say the level of care at Aetheris is in a different league. The remote monitoring through their digital platform gives me peace of mind daily.",
         name: "Michael R.",
         department: "Cardiology · November 2025",
@@ -97,7 +96,7 @@ const moreTestimonial = [
     },
 
     {
-        id: 5,
+        id: 6,
         text: "Dr. O'Brien's approach to my autoimmune condition has been transformative. For the first time in years, my symptoms are well-managed and I understand my treatment plan fully.",
         name: "Linda C.",
         department: "Immunology · March 2026",
@@ -111,74 +110,166 @@ export default function TestimonialSection() {
     }, []);
 
     return (
-        <main className="min-h-screen px-4 pb-8 pt-10">
+        <main className=" min-h-screen px-4 pb-8 pt-10">
             {/* Testimonial Header */}
             <header className="flex flex-col space-y-4">
-                <p className="text-primary font-medium text-blue-600 text-xs tracking-widest uppercase ">testimonials</p>
-                <h1 className="text-4xl md:text-5xl font-display font-medium text-foreground mt-2 mb-4">What our patients say</h1>
-                <p className="text-muted-foreground text-gray-400 max-w-2xl mb-16 leading-relaxed">Real stories from patients who have experienced the Aetheris difference. Their words guide our commitment to excellence.Real stories from patients who have experienced the Aetheris difference. Their words guide our commitment to excellence.</p>
+                <p className="text-primary font-medium text-blue-600 text-xs tracking-widest uppercase ">
+                    testimonials
+                </p>
+
+                <h1 className="text-4xl md:text-5xl font-display font-medium text-foreground mt-2 mb-4">
+                    What our patients say
+                </h1>
+
+                <p className="text-muted-foreground text-gray-400 max-w-2xl mb-16 leading-relaxed">
+                    Real stories from patients who have experienced the Aetheris
+                    difference. Their words guide our commitment to excellence.Real
+                    stories from patients who have experienced the Aetheris difference.
+                    Their words guide our commitment to excellence.
+                </p>
             </header>
 
             {/* Testimonial contents */}
             <section>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 p-8 bg-card rounded-2xl shadow-soft shadow-md bg-white/10 ">
-                    {contents?.map(content => (
-                        <div key={content.id} className="text-center">
-                            <p className="text-2xl text-blue-600/80 md:text-3xl font-display font-semibold text-primary tabular-nums">{content.num}</p>
-                            <p className="text-xs font-medium text-gray-500 text-muted-foreground mt-1 ">{content.title}</p>
-                        </div>
+                    {contents?.map((content, index) => (
+                        <motion.div
+                            key={content.id}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: index * 0.1,
+                                ease: "easeOut",
+                            }}
+                            whileHover={{
+                                y: -6,
+                                scale: 1.03,
+                            }}
+                            className="text-center"
+                        >
+                            <p className="text-2xl text-blue-600/80 md:text-3xl font-display font-semibold text-primary tabular-nums">
+                                {content.num}
+                            </p>
+
+                            <p className="text-xs font-medium text-gray-500 text-muted-foreground mt-1 ">
+                                {content.title}
+                            </p>
+                        </motion.div>
                     ))}
                 </div>
             </section>
 
             {/* Cards */}
             <section>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3  min-[800px]:grid-cols-2">
-                    {testimonialsCards?.map(Cards => (
-                        <div key={testimonialsCards.id} className="bg-blue-500 pt-4 text-white text-primary-foreground p-8 rounded-2xl relative">
-                            <FaQuoteRight className="text-3xl text-white/20" />
-                            <p className="text-sm leading-relaxed pt-3 mb-6 opacity-90">{Cards.text}</p>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3 min-[600px]:grid-cols-2 min-[800px]:grid-cols-2">
+                    {testimonialsCards?.map((Cards, index) => (
+                        <motion.div
+                            key={Cards.id}
+                            initial={{ opacity: 0, y: 60, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{
+                                duration: 0.6,
+                                delay: index * 0.15,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                            whileHover={{
+                                y: -10,
+                                scale: 1.02,
+                                transition: { duration: 0.25 },
+                            }}
+                            className="bg-blue-500 pt-4 text-white text-primary-foreground p-8 rounded-2xl relative cursor-pointer"
+                        >
+                            <motion.div
+                                whileHover={{ rotate: 10, scale: 1.1 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <FaQuoteRight className="text-3xl text-white/20" />
+                            </motion.div>
+
+                            <p className="text-sm leading-relaxed pt-3 mb-6 opacity-90">
+                                {Cards.text}
+                            </p>
+
                             <div className="flex items-center pb-4">
                                 <div className="flex items-center gap-1 mb-4">
                                     {Array.from({ length: 5 }).map((_, index) => (
-                                        <IoIosStar
+                                        <motion.div
                                             key={index}
-                                            className="text-gray-400 text-xl"
-                                        />
+                                            whileHover={{ scale: 1.3 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <IoIosStar className="text-gray-400 text-xl" />
+                                        </motion.div>
                                     ))}
                                 </div>
                             </div>
-                            <div className="border-t  border-primary-foreground/20 pt-6">
+
+                            <div className="border-t border-primary-foreground/20 pt-6">
                                 <p className="text-sm font-medium">{Cards.name}</p>
-                                <p className="text-xs opacity-70">{Cards.department}</p>
+                                <p className="text-xs opacity-70">
+                                    {Cards.department}
+                                </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>
 
-
             {/* Section for more cards */}
             <section>
                 <div className="flex flex-col space-y-7">
-                    <h2 className="text-2xl font-display font-medium text-foreground mb-8">More Patients stories</h2>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3 min-[800px]:grid-cols-2">
-                        {moreTestimonial?.map(card => (
-                            <div className="flex flex-col gap-4 bg-white shadow-md pt-4 text-gray-400 text-primary-foreground p-8 rounded-2xl relative">
+                    <h2 className="text-2xl font-display font-medium text-foreground mb-8">
+                        More Patients stories
+                    </h2>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3 min-[600px]:grid-cols-2 min-[800px]:grid-cols-2">
+                        {moreTestimonial?.map((card, index) => (
+                            <motion.div
+                                key={card.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{
+                                    duration: 0.6,
+                                    delay: index * 0.1,
+                                    ease: "easeOut",
+                                }}
+                                whileHover={{
+                                    y: -8,
+                                    scale: 1.02,
+                                    transition: { duration: 0.25 },
+                                }}
+                                className="flex flex-col gap-4 bg-white shadow-md pt-4 text-gray-400 text-primary-foreground p-8 rounded-2xl relative cursor-pointer"
+                            >
                                 <div className="flex items-center gap-1 mb-4">
                                     {Array.from({ length: 5 }).map((_, index) => (
-                                        <IoIosStar
+                                        <motion.div
                                             key={index}
-                                            className="text-gray-400 text-xl"
-                                        />
+                                            whileHover={{ scale: 1.25 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <IoIosStar className="text-gray-400 text-xl" />
+                                        </motion.div>
                                     ))}
                                 </div>
-                                <p className="text-sm font-medium">{card.text}</p>
+
+                                <p className="text-sm font-medium">
+                                    {card.text}
+                                </p>
+
                                 <div className="border-t flex flex-col gap-3 border-primary-foreground/20 pt-6">
-                                    <p className="text-sm font-medium text-black">{card.name}.</p>
-                                    <p className="text-xs opacity-70">{card.department}</p>
+                                    <p className="text-sm font-medium text-black">
+                                        {card.name}.
+                                    </p>
+
+                                    <p className="text-xs opacity-70">
+                                        {card.department}
+                                    </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
