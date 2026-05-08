@@ -11,6 +11,7 @@ import { CiStethoscope } from "react-icons/ci";
 import { MdArrowRightAlt } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import { useServicesHero } from "../hooks/useServicesHero";
+import { useEffect } from "react";
 
 const cards = [
   {
@@ -123,6 +124,9 @@ const filterLabels = {
 };
 
 export default function ServicesHero() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const { filter, setFilter, filteredCards = [] } = useServicesHero(cards);
 
   return (

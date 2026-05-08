@@ -5,7 +5,7 @@ import { CiTimer } from "react-icons/ci";
 import { MdStarRate } from "react-icons/md";
 import { LuBrain } from "react-icons/lu";
 import { useHandleOutsideClick } from "../hooks/useHandleOutsideClick";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Modal() {
   const navigate = useNavigate()
@@ -125,13 +125,13 @@ export default function Modal() {
 
               {/* Actions */}
               <div className="flex gap-2.5 px-6 pb-6">
-                <button className="flex-1 py-3 text-sm font-semibold text-slate-500 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 hover:text-slate-700 active:scale-[0.9] transition-all duration-150 cursor-pointer">
+                <button  onClick={()=> setIsOpen(false)}  className="flex-1 py-3 text-sm font-semibold text-slate-500 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 hover:text-slate-700 active:scale-[0.9] transition-all duration-150 cursor-pointer">
                   Maybe later
                 </button>
 
-                <button onClick={()=> navigate("/appointment")} className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-white rounded-xl cursor-pointer bg-gradient-to-br from-indigo-500 to-violet-600 shadow-md shadow-indigo-200/60 hover:shadow-lg hover:shadow-indigo-300/50 hover:brightness-105 active:scale-[0.97] transition-all duration-150">
+                <Link to={"/appointment"} className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-white rounded-xl cursor-pointer bg-gradient-to-br from-indigo-500 to-violet-600 shadow-md shadow-indigo-200/60 hover:shadow-lg hover:shadow-indigo-300/50 hover:brightness-105 active:scale-[0.97] transition-all duration-150">
                   Book Appointment  <LiaArrowRightSolid size={15} />
-                </button>
+                </Link>
               </div>
 
             </div>

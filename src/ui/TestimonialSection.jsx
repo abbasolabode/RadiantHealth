@@ -106,10 +106,10 @@ const moreTestimonial = [
 ]
 
 export default function TestimonialSection() {
-      useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
-    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <main className="min-h-screen px-4 pb-8 pt-10">
             {/* Testimonial Header */}
@@ -133,7 +133,7 @@ export default function TestimonialSection() {
 
             {/* Cards */}
             <section>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3  min-[800px]:grid-cols-2">
                     {testimonialsCards?.map(Cards => (
                         <div key={testimonialsCards.id} className="bg-blue-500 pt-4 text-white text-primary-foreground p-8 rounded-2xl relative">
                             <FaQuoteRight className="text-3xl text-white/20" />
@@ -162,7 +162,7 @@ export default function TestimonialSection() {
             <section>
                 <div className="flex flex-col space-y-7">
                     <h2 className="text-2xl font-display font-medium text-foreground mb-8">More Patients stories</h2>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 space-y-3 min-[800px]:grid-cols-2">
                         {moreTestimonial?.map(card => (
                             <div className="flex flex-col gap-4 bg-white shadow-md pt-4 text-gray-400 text-primary-foreground p-8 rounded-2xl relative">
                                 <div className="flex items-center gap-1 mb-4">
