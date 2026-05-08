@@ -67,7 +67,7 @@ export default function Herosection() {
                         }}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => navigate("/appointment")}
-                        className="tracking-widest text-white bg-blue-600 whitespace-nowrap rounded-full w-full min-[375px]:w-[246.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
+                        className="tracking-widest cursor-pointer text-white bg-blue-600 whitespace-nowrap rounded-full w-full min-[375px]:w-[246.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
                     >
                         Book Appointment <FiArrowRight />
                     </motion.button>
@@ -80,7 +80,7 @@ export default function Herosection() {
                         }}
                         whileTap={{ scale: 0.97 }}
                         onClick={() => navigate("/doctors")}
-                        className="border mb-20 border-gray-400/50 w-full text-black tracking-widest whitespace-nowrap rounded-full min-[375px]:w-[200.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
+                        className="border mb-20 border-gray-400/50 w-full cursor-pointer text-black tracking-widest whitespace-nowrap rounded-full min-[375px]:w-[200.771px] justify-center font-semibold py-3 px-6 flex items-center gap-2"
                     >
                         View Specialist
                     </motion.button>

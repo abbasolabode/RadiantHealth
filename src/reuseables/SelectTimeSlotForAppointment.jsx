@@ -5,7 +5,7 @@ export default function SelectTimeSlotForAppointment({ moment = "Afternoon", mor
     <div className="space-y-3">
       <p className="text-sm text-gray-500 font-medium">{moment}</p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 shrink-0 gap-3 ">
         {timeSlotsToUse?.map(slot => (
           <button
             key={slot.id}
@@ -18,7 +18,7 @@ export default function SelectTimeSlotForAppointment({ moment = "Afternoon", mor
                 setSelectedTime(slot.time);
               }
             }}
-            className={`w-full flex items-center justify-center px-3 py-2 text-sm rounded-xl font-semibold transition-all duration-200 border
+            className={`w-full cursor-pointer flex items-center justify-center px-3 py-2 text-sm rounded-xl font-semibold transition-all duration-200 border
             active:scale-95
             ${selectedTimeIdForMorning === slot.id || selectedTimeIdForAfternoon === slot.id
                 ? "bg-gradient-to-br from-indigo-500 to-violet-500 text-white border-transparent shadow-md shadow-indigo-200"

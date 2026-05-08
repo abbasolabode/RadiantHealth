@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { MdLibraryBooks, MdSecurity, MdStarRate } from "react-icons/md";
 import { CiCalendar, CiPhone, CiStar, CiStethoscope, CiUser } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
@@ -141,8 +142,8 @@ const afternoonTimeSlots = [
 
 //const { register, handleSubmit, reset, formState: { errors, isSubmitting }, } = useForm()
 export default function AppointmentSection() {
-    useEffect(()=> {
-        window.scrollTo(0,0)
+    useEffect(() => {
+        window.scrollTo(0, 0)
     }, []);
 
     const [inputDate, setInputDate] = useState("");
@@ -162,7 +163,7 @@ export default function AppointmentSection() {
         if (!selectedSpecialty) return false;
         //Converts the specialty string to lowercase
         const docSpecialty = doctor.specialty.toLowerCase();
-        
+
         //Converts the selectedSpecialty string (state) to lowercase
         const selected = selectedSpecialty.toLowerCase();
         return docSpecialty === selected || docSpecialty.includes(selected);
@@ -184,10 +185,10 @@ export default function AppointmentSection() {
             return alert("Please fill in all required fields before submitting the form.");
         }
 
-        if(!selectedSpecialty || !selectedDoctor|| !confirmedDate || !selectedTime) return alert("Please provide the doctor's name, specialty, time and date");
+        if (!selectedSpecialty || !selectedDoctor || !confirmedDate || !selectedTime) return alert("Please provide the doctor's name, specialty, time and date");
         mutate({
             ...formData, selectedSpecialty, selectedDoctor, confirmedDate, selectedTime
-            
+
         });
         console.log(formData, "form data on submit");
     }
@@ -250,19 +251,31 @@ export default function AppointmentSection() {
 
                     {/* Cards */}
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                        {specialties?.map(specialty => (
-                            <button
-                                onClick={() => setSelectedSpecialty(specialty.name)}
+                        {specialties?.map((specialty, index) => (
+                            <motion.button
                                 key={specialty.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.05 }}
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                onClick={() => setSelectedSpecialty(specialty.name)}
                                 className={`border cursor-pointer border-blue-100 relative group p-4 rounded-xl text-left transition-all duration-300 overflow-hidden border-border/60 bg-background/40 hover:border-foreground/20 shadow-md hover:shadow-lg ${selectedSpecialty === specialty.name ? "border-red-200 bg-blue-300/20" : ""}`}
                             >
                                 <div className="flex relative items-center justify-between gap-3">
-                                    <span className={`w-10 h-10 rounded-xl flex items-center border justify-center mb-3 transition-colors border-blue-300 text-blue-200 ${selectedSpecialty === specialty.name ? "bg-blue-600/50 text-white" : ""}`}>{specialty.icon}</span>
-                                    <span className={`${selectedSpecialty === specialty.name ? "bg-blue-600/50 text-white" : "bg-primary"} absolute p-0.5 border border-blue-300 text-blue-200 top-0 right-0 w-5 h-5 rounded-full flex items-center justify-center`}><CiTimer size={20} /></span>
+                                    <span className={`w-10 h-10 rounded-xl flex items-center border justify-center mb-3 transition-colors border-blue-300 text-blue-200 ${selectedSpecialty === specialty.name ? "bg-blue-600/50 text-white" : ""}`}>
+                                        {specialty.icon}
+                                    </span>
+                                    <span className={`${selectedSpecialty === specialty.name ? "bg-blue-600/50 text-white" : "bg-primary"} absolute p-0.5 border border-blue-300 text-blue-200 top-0 right-0 w-5 h-5 rounded-full flex items-center justify-center`}>
+                                        <CiTimer size={20} />
+                                    </span>
                                 </div>
                                 <h3 className="text-sm font-semibold ">{specialty.name}</h3>
-                                <p className="text-xs text-muted-foreground mt-0.5 leading-snug text-gray-500">{specialty.description}</p>
-                            </button>
+                                <p className="text-xs text-muted-foreground mt-0.5 leading-snug text-gray-500">
+                                    {specialty.description}
+                                </p>
+                            </motion.button>
                         ))}
                     </div>
                 </section>
@@ -270,7 +283,7 @@ export default function AppointmentSection() {
                 {/* Section for displaying selected specialty details */}
                 <section className="overflow-hidden shadow-sm flex flex-col gap-6 p-4 w-full lg:w-100">
                     <div className="space-y-6 border border-blue-300 pb-4 rounded-lg ">
-                        <div className="p-2 bg-blue-200 ">
+                        <div className="p-2 bg-blue-200  rounded-lg">
                             <p className="text-blue-500 text-[11px] text-primary font-semibold uppercase tracking-wider mb-1.5">Your Booking</p>
                             <p className=" text-base font-display font-semibold text-foreground">{selectedSpecialty || "Start by choosing a specialty"}</p>
                         </div>
@@ -364,7 +377,7 @@ export default function AppointmentSection() {
 
                 {/* Specialist Options */}
                 {filteredDoctors?.length > 0 ? (
-                    <div className="flex flex-col gap-4 w-full md:max-w-3xl lg:max-w-4xl ">
+                    <div className="flex flex-col gap-4 w-full md:max-w-3xl lg:max-w-4xl lg:grid lg:grid-cols-2 ">
                         {filteredDoctors?.map((doctor, index) => {
                             const nameParts = doctor.name.split(" ");
                             const titles = ["Dr.", "Mr.", "Mrs.", "Ms."];
@@ -374,29 +387,45 @@ export default function AppointmentSection() {
                                 .join("");
 
                             return (
-                                <button
-                                    onClick={() => setSelectedDoctor(doctor.name)}
+                                <motion.button
                                     key={doctor.id}
-                                    className=" cursor-pointer doctor-card-enter group bg-blue-200/20 border-blue-500 flex h-30 px-3 py-3 rounded-3xl items-center justify-between border w-full transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100 hover:-translate-y-0.5 active:scale-[0.99]"
-                                    style={{ animationDelay: `${index * 80}ms` }}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.35, delay: index * 0.05 }}
+                                    whileHover={{ scale: 1.01 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    onClick={() => setSelectedDoctor(doctor.name)}
+                                    className="cursor-pointer doctor-card-enter group bg-blue-200/20 border-blue-500 flex h-30 px-3 py-3 rounded-3xl items-center justify-between border w-full transition-all duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100 hover:-translate-y-0.5 active:scale-[0.99]"
                                 >
                                     <div className="flex items-center gap-4 min-w-0">
                                         <span className="bg-blue-500/20 text-white border w-12 h-12 rounded-2xl flex items-center justify-center text-sm font-bold shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:border-blue-300 group-hover:bg-blue-50">
                                             {initials}
                                         </span>
+
                                         <div className="min-w-0">
-                                            <p className="text-sm font-semibold text-foreground truncate transition-colors duration-200 group-hover:text-blue-600">{doctor.name}</p>
-                                            <p className="text-xs text-muted-foreground mt-0.5 truncate text-left text-gray-600">{doctor.specialty}</p>
+                                            <p className="text-sm font-semibold text-foreground truncate transition-colors duration-200 group-hover:text-blue-600">
+                                                {doctor.name}
+                                            </p>
+                                            <p className="text-xs text-muted-foreground mt-0.5 truncate text-left text-gray-600">
+                                                {doctor.specialty}
+                                            </p>
+
                                             <div className="flex items-center gap-2.5 mt-1.5 text-[11px]">
-                                                <span className="flex items-center gap-1 font-semibold"><MdStarRate className="text-yellow-600" />{doctor.rating}</span>
+                                                <span className="flex items-center gap-1 font-semibold">
+                                                    <MdStarRate className="text-yellow-600" />
+                                                    {doctor.rating}
+                                                </span>
                                                 <span>{doctor.yearsOfExperience} yrs</span>
                                             </div>
                                         </div>
                                     </div>
+
                                     <p className="flex text-right shrink-0 bg-green-400/50 py-1 px-1.5 text-green-800 font-semibold rounded-full text-[12px] gap-2 items-center transition-all duration-300 group-hover:bg-green-400/70 group-hover:scale-105">
-                                        <CiTimer />{doctor.calendar}
+                                        <CiTimer />
+                                        {doctor.calendar}
                                     </p>
-                                </button>
+                                </motion.button>
                             );
                         })}
                     </div>
@@ -466,7 +495,7 @@ export default function AppointmentSection() {
                             <p className="text-[10px] font-md text-gray-500 uppercase tracking-wider font-semibold text">Time</p>
                         </div>
                     </div>
-
+                  
                     <SelectTimeSlotForAppointment moment="Morning" morningTimeSlots={morningTimeSlots} selectedTimeIdForMorning={selectedTimeIdForMorning} setSelectedTimeIdForMorning={setSelectedTimeIdForMorning} setSelectedTime={setSelectedTime} selectedTime={selectedTime} />
                     <SelectTimeSlotForAppointment setSelectedTime={setSelectedTime} selectedTime={selectedTime} afternoonTimeSlots={afternoonTimeSlots} selectedTimeIdForAfternoon={selectedTimeIdForAfternoon} setSelectedTimeIdForAfternoon={setSelectedTimeIdForAfternoon} />
                 </div>
@@ -474,7 +503,7 @@ export default function AppointmentSection() {
 
 
             {/* Form  */}
-           <AppointmentForm handleSubmit={handleSubmit} onSubmit={onSubmit} register={register} errors={errors} isSubmitting={isSubmitting} isPending={isPending} />
+            <AppointmentForm handleSubmit={handleSubmit} onSubmit={onSubmit} register={register} errors={errors} isSubmitting={isSubmitting} isPending={isPending} />
         </main >
     )
 }
