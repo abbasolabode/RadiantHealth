@@ -1,6 +1,7 @@
 import { FaQuoteRight } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import Cards from "./Cards";
+import { useEffect } from "react";
 const contents = [
     {
         id: 1,
@@ -105,8 +106,12 @@ const moreTestimonial = [
 ]
 
 export default function TestimonialSection() {
+      useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
+    
     return (
-        <main className="min-h-screen px-4 py-8">
+        <main className="min-h-screen px-4 pb-8 pt-10">
             {/* Testimonial Header */}
             <header className="flex flex-col space-y-4">
                 <p className="text-primary font-medium text-blue-600 text-xs tracking-widest uppercase ">testimonials</p>

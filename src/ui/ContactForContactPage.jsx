@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useContactForm } from "../hooks/useContactFom";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import { CiTimer } from "react-icons/ci";
@@ -36,6 +36,10 @@ const selectOption = [
 
 
 export default function ContactForContactPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isActive, setIsActive] = useState("first");
   const { register, handleSubmit, reset, formState: { errors, isSubmitting }, } = useForm()
   const { mutate, isPending } = useContactForm()
@@ -53,7 +57,7 @@ export default function ContactForContactPage() {
   const isActiveSecondStyle = "text-white font-medium bg-red-600";
 
   return (
-    <div className="w-full min-h-screen flex flex-col gap-16 px-4 py-6">
+    <div className="w-full pt-10 min-h-screen flex flex-col gap-16 px-4 py-6">
       <header className="">
         <p className="text-primary text-xs tracking-widest uppercase font-medium text-blue-600">Contact</p>
         <h1 className="text-4xl md:text-5xl font-display font-medium text-foreground mt-2 mb-4">Get in Touch</h1>
@@ -252,13 +256,13 @@ export default function ContactForContactPage() {
                   placeholder="Write message..."
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm min-h-[120px] focus:ring-2 focus:ring-blue-500 outline-none"
                 />
-                {errors?.email?.message && (
-                  <small className="text-red-500 text-xs">{errors.email.message}</small>
+                {errors?.message?.message && (
+                  <small className="text-red-500 text-xs">{errors.message.message}</small>
                 )}
               </section>
 
               {/* Submit */}
-              <button className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition">
+              <button className="w-full cursor-pointer bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition">
                 {isPending || isSubmitting ? "Submitting form..." : "Submit Inquiry"}
               </button>
             </form>

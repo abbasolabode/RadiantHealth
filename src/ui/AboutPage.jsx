@@ -57,7 +57,7 @@ export default function AboutPage() {
     }, []);
 
     return (
-        <main className="px-4 w-full min-h-screen">
+        <main className="px-4 w-full min-h-screen pt-10">
             <div className="pt-8">
                 <p className="text-primary text-xs tracking-widest uppercase font-medium text-blue-500">about us</p>
                 <h1 className="text-4xl md:text-5xl font-display font-medium text-foreground mt-2 mb-6">The facility as a healing space</h1>

@@ -126,7 +126,7 @@ export default function ServicesHero() {
   const { filter, setFilter, filteredCards = [] } = useServicesHero(cards);
 
   return (
-    <div className="w-full min-h-screen px-4 py-6 flex flex-col gap-8">
+    <div className="w-full min-h-screen pt-10 px-4 py-6 flex flex-col gap-8">
 
       {/* HEADER */}
       <div className="flex flex-col gap-5">

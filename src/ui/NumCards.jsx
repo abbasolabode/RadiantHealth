@@ -32,7 +32,7 @@ export default function NumCards() {
             transition={{ duration: 1 }}
             className="w-full min-h-40 bg-gray-300/20"
         >
-            <div className="py-16 px-6 grid grid-cols-2 gap-8 items-center min-[800px]:flex min-[800px]:items-center min-[800px]:justify-center min-[800px]:space-x-8">
+            <div className="py-16  px-6 grid grid-cols-2 gap-8 items-center min-[800px]:flex min-[800px]:items-center min-[800px]:justify-center min-[800px]:space-x-8">
                 
                 {numCards.map((card, index) => (
                     <motion.div

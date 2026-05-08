@@ -10,7 +10,7 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { LiaArrowRightSolid } from "react-icons/lia";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDoctors } from "../hooks/useDoctors";
 import { useForm } from "react-hook-form";
 import Spinner from "./Spinner";
@@ -141,6 +141,10 @@ const afternoonTimeSlots = [
 
 //const { register, handleSubmit, reset, formState: { errors, isSubmitting }, } = useForm()
 export default function AppointmentSection() {
+    useEffect(()=> {
+        window.scrollTo(0,0)
+    }, []);
+
     const [inputDate, setInputDate] = useState("");
     const [confirmedDate, setConfirmedDate] = useState("");
     const [selectedTimeIdForMorning, setSelectedTimeIdForMorning] = useState("");
@@ -190,7 +194,7 @@ export default function AppointmentSection() {
 
 
     return (
-        <main className=" w-full min-h-screen px-4 py-8 space-y-12">
+        <main className=" w-full min-h-screen px-4 py-10 space-y-12">
 
             {/* Animation keyframes */}
             <style>{`
