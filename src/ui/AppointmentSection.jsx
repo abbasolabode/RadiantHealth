@@ -438,7 +438,7 @@ export default function AppointmentSection() {
                                 type="date"
                                 value={inputDate}
                                 onChange={(e) => setInputDate(e.target.value)}
-                                className="pl-10 pr-4 py-2.5 text-sm font-medium text-slate-900 bg-white border border-slate-200 rounded-xl cursor-pointer shadow-sm shadow-black/5 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all duration-150"
+                                className="pl-10 w-40 pr-4 py-2.5 text-sm font-medium text-slate-900 bg-white border border-slate-200 rounded-xl cursor-pointer shadow-sm shadow-black/5 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all duration-150"
                             />
                         </div>
 

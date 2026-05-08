@@ -35,9 +35,10 @@ export function useHandleOutsideClick(listening = true) {
     }, [handleCloseModal])
 
 
- //The useEffect that handles the key pressed 
+    //The useEffect that handles the key pressed 
     useEffect(() => {
         function handleEscapeClick(e) {
+            //If the key pressed is equal to "Escape" key then close the modal
             if (e.key === "Escape") {
                 handleCloseModal();
             };
@@ -48,6 +49,7 @@ export function useHandleOutsideClick(listening = true) {
         return () => document.removeEventListener("keydown", handleEscapeClick);
 
     }, [handleCloseModal]);
+
 
     return { modalRef, setIsOpen, isOpen };
 }

@@ -4,12 +4,12 @@ import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { CiTimer } from "react-icons/ci";
 import { MdStarRate } from "react-icons/md";
 import { LuBrain } from "react-icons/lu";
-import { useEffect, useRef, useState } from "react";
 import { useHandleOutsideClick } from "../hooks/useHandleOutsideClick";
+import { useNavigate } from "react-router-dom";
 
 export default function Modal() {
+  const navigate = useNavigate()
   const { modalRef, setIsOpen, isOpen } = useHandleOutsideClick()
-
 
 
 
@@ -25,7 +25,7 @@ export default function Modal() {
             <div ref={modalRef} className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl shadow-black/10 overflow-hidden">
 
               {/* Top accent bar */}
-              <div className="h-1 w-full bg-gradient-to-r from-indigo-500 via-blue-500 to-violet-500" />
+              <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500" />
 
               {/* Header */}
               <div className="flex items-start justify-between px-6 pt-6 pb-4">
@@ -129,8 +129,8 @@ export default function Modal() {
                   Maybe later
                 </button>
 
-                <button className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-white rounded-xl cursor-pointer bg-gradient-to-br from-indigo-500 to-violet-600 shadow-md shadow-indigo-200/60 hover:shadow-lg hover:shadow-indigo-300/50 hover:brightness-105 active:scale-[0.97] transition-all duration-150">
-                  Book Appointment <LiaArrowRightSolid size={15} />
+                <button onClick={()=> navigate("/appointment")} className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-white rounded-xl cursor-pointer bg-gradient-to-br from-indigo-500 to-violet-600 shadow-md shadow-indigo-200/60 hover:shadow-lg hover:shadow-indigo-300/50 hover:brightness-105 active:scale-[0.97] transition-all duration-150">
+                  Book Appointment  <LiaArrowRightSolid size={15} />
                 </button>
               </div>
 
