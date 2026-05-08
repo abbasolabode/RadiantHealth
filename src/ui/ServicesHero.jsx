@@ -132,7 +132,7 @@ export default function ServicesHero() {
   const { filter, setFilter, filteredCards = [] } = useServicesHero(cards);
 
   return (
-    <div className="w-full min-h-screen pt-10 px-4 py-6 flex flex-col gap-8">
+    <div className="bg-gradient-to-br from-slate-50 to-sky-50 w-full min-h-screen pt-10 px-4 py-6 flex flex-col gap-8">
 
       {/* HEADER */}
       <div className="flex flex-col gap-5">
@@ -180,7 +180,7 @@ export default function ServicesHero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 "
       >
         <AnimatePresence mode="wait">
           {filteredCards?.map((card) => (
@@ -195,7 +195,7 @@ export default function ServicesHero() {
                 scale: 1.02,
                 boxShadow: "0px 20px 40px rgba(0,0,0,0.15)",
               }}
-              className="border bg-white border-gray-200 rounded-xl p-6 flex flex-col gap-4 transition-all"
+              className="bg-gradient-to-br from-white to-indigo-200 rounded-xl p-6 flex flex-col gap-4 transition-all"
             >
               <span className="p-2 w-fit rounded-lg bg-indigo-100">
                 {card.icon}
