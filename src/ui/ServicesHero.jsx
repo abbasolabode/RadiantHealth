@@ -123,10 +123,12 @@ const filterLabels = {
   diagnostics: "Diagnostics",
 };
 
+
 export default function ServicesHero() {
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+  }, []);
+
   const { filter, setFilter, filteredCards = [] } = useServicesHero(cards);
 
   return (

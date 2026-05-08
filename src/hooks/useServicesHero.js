@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 export function useServicesHero(cards = []) {
-  const [filter, setFilter] = useState("");
+  //The state has a default value of "all" 
+  const [filter, setFilter] = useState("all");
 
   const filteredCards = cards.filter((card) => {
     //if no filter is selected, show all cards
