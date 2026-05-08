@@ -74,7 +74,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="relative z-10 flex flex-col gap-4 justify-center items-center w-full min-[800px]:flex-row min-[800px]:justify-between min-[800px]:col-span-4">
-        <div className="text-white/50 text-[14px] w-full">
+        <div className="text-white/50 text-[14px] w-full text-center">
           © 2026 Aetheris Health. All rights reserved.
         </div>
         <div className="flex gap-6 w-full min-[800px]:justify-end justify-center">

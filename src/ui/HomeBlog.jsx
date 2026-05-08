@@ -169,7 +169,7 @@ export default function HomeBlog() {
                 whileHover={{ x: 4 }}
                 transition={{ type: "spring", stiffness: 250 }}
               >
-                <Link className="flex items-center gap-2 text-sm font-medium text-[#1e40af]">
+                <Link to={"/blog"} className="flex items-center gap-2 text-sm font-medium text-[#1e40af]">
                   Read more <GoArrowRight />
                 </Link>
               </motion.div>

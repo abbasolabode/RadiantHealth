@@ -35,7 +35,7 @@ export default function BookNowCard() {
                         delay: 0.2,
                         duration: 0.8,
                     }}
-                    className="min-[500px]:w-full font-medium text-center w-[261.333px] text-3xl md:text-4xl font-display text-primary-foreground mb-4 relative z-10"
+                    className="min-[500px]:w-full  tracking-wider leading-10 font-medium text-center w-[261.333px] text-3xl md:text-4xl font-display text-primary-foreground mb-4 relative z-10"
                 >
                     Ready to take control of your health?
                 </motion.h2>

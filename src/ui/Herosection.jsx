@@ -6,7 +6,7 @@ export default function Herosection() {
     const navigate = useNavigate();
 
     return (
-        <main className="min-h-screen pt-10 space-y-16 md:pb-30 md:flex-row md:items-center  flex flex-col lg:flex-row lg:items-center gap-6 px-4 min-[425px]:gap-8 lg:z-0">
+        <main className=" min-h-screen space-y-16 md:pb-30 md:flex-row md:items-center flex flex-col lg:flex-row lg:items-center gap-6 px-4 min-[425px]:gap-8 lg:z-0">
 
             <motion.section
                 initial={{ opacity: 0, x: -60 }}
@@ -15,7 +15,7 @@ export default function Herosection() {
                     duration: 1,
                     ease: [0.22, 1, 0.36, 1],
                 }}
-                className="w-full  h-[530.667px] md:w-1/2 flex flex-col gap-6 py-4"
+                className="w-full h-[530.667px] md:w-1/2 flex flex-col gap-6 py-4"
             >
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
