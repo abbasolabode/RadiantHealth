@@ -93,13 +93,14 @@ export default function Navbar() {
                         {/* Links */}
                         <ul className="w-full flex flex-col gap-5">
                             {navLinks.map(link => (
-                                <li
+                                <motion.li
                                     key={link.id}
                                     className="font-semibold tracking-widest text-white uppercase"
                                     variants={linkVariants}
+                                    onClick={() => setIsOpen(false)}
                                 >
-                                    <Link onClick={() => setIsOpen(false)} to={link.path}>{link.label}</Link>
-                                </li>
+                                    <Link to={link.path}>{link.label}</Link>
+                                </motion.li>
                             ))}
                         </ul>
 
